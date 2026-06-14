@@ -1,0 +1,68 @@
+### LICENSE — STARTER (replace the placeholders before publishing)
+###
+### This file goes at the REPO ROOT, not in `docs/`. When you copy
+### `templates/*` into a new project, move LICENSE and NOTICE up to
+### the project root.
+###
+### **Default: All Rights Reserved** (below). This is intentional: the
+### framework defaults to closed-source so that open-sourcing is an
+### explicit, conscious decision rather than an accident. Replace
+### <YEAR> and <COPYRIGHT_HOLDER>, delete this header block, and you're
+### done.
+###
+### **Switch to an open-source license when:**
+###
+### - The project incorporates copyleft code (GPL, AGPL) — your project
+###   MUST be open-sourced under a compatible license.
+### - The project incorporates code under a license that requires
+###   propagation of attribution / source distribution at scale.
+### - You consciously choose to open-source for community / collaboration
+###   reasons.
+###
+### **Common alternatives** (replace the All Rights Reserved body
+### below with the chosen license's verbatim text — do not paraphrase;
+### courts read the exact words):
+###
+### - **MIT** — permissive, most common for open source. Lets anyone do
+###   anything as long as they preserve the copyright notice.
+### - **Apache-2.0** — permissive + explicit patent grant. If you choose
+###   this, ALSO ship a `NOTICE` file at repo root (see `templates/NOTICE`).
+### - **BSD-3-Clause** — permissive, similar to MIT plus a non-endorsement
+###   clause.
+### - **GPL-3.0 / AGPL-3.0** — copyleft. Derivatives must be open-sourced
+###   under the same license. AGPL extends copyleft to network-served
+###   software.
+### - **CC0 / CC-BY / CC-BY-SA** — for content (text, art, media).
+###   Use alongside a code license, not in place of one.
+###
+### Full text for each: https://choosealicense.com or https://spdx.org/licenses
+###
+### **Mixed-license projects** (code + copyrighted media, e.g. games /
+### ARGs / creative content): keep "All Rights Reserved" for media and
+### state any open-source code license boundary explicitly at the top
+### of the file before the license body. Example:
+###
+###     The source code in this repository (files under `src/`,
+###     `backend/`, etc.) is licensed under the MIT License (text
+###     below). Audio, artwork, and other media assets are All Rights
+###     Reserved by <HOLDER> and are NOT covered by that license.
+###
+### Once filled in, the rest of this file should read as a plain license
+### statement with no comment markers.
+
+Copyright (c) <YEAR> <COPYRIGHT_HOLDER>
+All Rights Reserved.
+
+No part of this software, its documentation, or its associated assets
+may be reproduced, distributed, transmitted, modified, or used to
+prepare derivative works in any form or by any means, electronic or
+mechanical, without the prior written permission of the copyright
+holder, except as permitted by applicable law (e.g. fair use, fair
+dealing) or by the terms of any separate written agreement.
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF OR INABILITY TO
+USE THIS SOFTWARE.

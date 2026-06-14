@@ -1,0 +1,33 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
+dist/
+build/
+.cache/
+.vscode/
+.idea/
+
+# Claude Code: the maintainer's personal settings stay out of the public repo.
+# The generic, shippable example lives at templates/.claude/settings.json.
+.claude/settings.json
+.claude/settings.local.json
+
+# Dogfood docs (Discipline-only): Discipline runs its own templates on itself.
+# These docs/ instances duplicate templates/ and stay local-only — never tracked.
+# NOTE: specific to Discipline dogfooding the framework it ships. Adopter repos are
+# the opposite — their docs/ hold real project content and SHOULD be tracked.
+/docs/agents/
+/docs/AGENT_TRACKER.md
+/docs/AUTONOMOUS_QUEUE.md
+/docs/DEPLOYMENT.md
+/docs/INVESTIGATION.md
+/docs/OPEN_DECISIONS.md
+/docs/PLAYBOOK_FEEDBACK.md
+/docs/SECURITY_AUDIT.md
+
+# Personal/internal working notes (Discipline-only) — kept out of the public repo.
+/docs/ROADMAP.md
+/docs/PROJECT_CONTEXT.md
+/docs/TODO.md

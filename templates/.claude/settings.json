@@ -1,0 +1,58 @@
+{
+  "_README": "Project-level Claude Code settings. DEFAULT BEHAVIOR: this file delegates to user-level (~/.claude/settings.json or %USERPROFILE%\\.claude\\settings.json) — projects inherit whatever permissions the operator runs personally. Project-level overrides go in the top-level `permissions` block below if and only if the project has a specific reason to be tighter or looser than the operator default. The `_alternatives` block at the bottom is REFERENCE ONLY — opt-in presets that are NOT applied unless their contents are moved up into the active `permissions` block. NEVER paste blindly; review the risk profile first.",
+
+  "permissions": {
+    "_comment": "Empty by default. Project inherits user-level permissions. To override at project scope, populate `allow`, `deny`, and/or `ask` arrays here. See `_alternatives` below for opt-in presets."
+  },
+
+  "_alternatives": {
+    "_README": "OPT-IN PRESETS — not applied. Each preset shows what could go in the top-level `permissions` block above. Do not paste blindly. Each is calibrated to a specific operator trust posture; review the chat / docs that authored it before adopting.",
+
+    "permissive_individual_high_autonomy": {
+      "_provenance": "Authored for a single-operator personal cross-repo workflow. Designed for a SINGLE TRUSTED OPERATOR running on their own machine, not for shared CI, multi-developer use, or environments with sensitive credentials accessible to the agent.",
+      "_intent": "Auto-approve most coding-task work; prompt only on commands that add new libraries, push to remote, deploy, fetch arbitrary code (npx/dlx), or have known-dangerous variants.",
+      "_warning": "NOT a recommended default. Inherits the operator's trust posture; any subagent runs under these rules. Pair with: (a) diff review at end of every agent run, (b) the Pre-Deploy Gate in templates/DEPLOYMENT.md, (c) the security-audit recency rule.",
+
+      "permissions": {
+        "allow": [
+          "Read", "Edit", "Write", "Glob", "Grep", "NotebookEdit", "TodoWrite", "Skill", "Agent", "WebSearch", "WebFetch",
+
+          "Bash(git status:*)", "Bash(git -C *:status*)", "Bash(git diff:*)", "Bash(git -C *:diff*)", "Bash(git log:*)", "Bash(git -C *:log*)", "Bash(git show:*)", "Bash(git -C *:show*)", "Bash(git branch:*)", "Bash(git -C *:branch*)", "Bash(git remote:*)", "Bash(git -C *:remote*)", "Bash(git symbolic-ref:*)", "Bash(git -C *:symbolic-ref*)", "Bash(git rev-parse:*)", "Bash(git -C *:rev-parse*)", "Bash(git ls-files:*)", "Bash(git -C *:ls-files*)", "Bash(git blame:*)", "Bash(git -C *:blame*)", "Bash(git fetch:*)", "Bash(git -C *:fetch*)", "Bash(git config --get:*)", "Bash(git -C *:config --get*)", "Bash(git config --list:*)", "Bash(git -C *:config --list*)",
+
+          "Bash(git switch:*)", "Bash(git -C *:switch*)", "Bash(git checkout -b:*)", "Bash(git -C *:checkout -b*)", "Bash(git restore:*)", "Bash(git -C *:restore*)", "Bash(git add:*)", "Bash(git -C *:add*)", "Bash(git commit:*)", "Bash(git -C *:commit*)", "Bash(git stash push:*)", "Bash(git -C *:stash push*)", "Bash(git stash pop:*)", "Bash(git -C *:stash pop*)", "Bash(git stash list:*)", "Bash(git -C *:stash list*)", "Bash(git stash show:*)", "Bash(git -C *:stash show*)", "Bash(git stash apply:*)", "Bash(git -C *:stash apply*)", "Bash(git tag:*)", "Bash(git -C *:tag*)", "Bash(git merge:*)", "Bash(git -C *:merge*)", "Bash(git rebase:*)", "Bash(git -C *:rebase*)", "Bash(git worktree:*)", "Bash(git -C *:worktree*)", "Bash(git pull:*)", "Bash(git -C *:pull*)", "Bash(git clone:*)", "Bash(git init:*)", "Bash(git reflog:*)", "Bash(git -C *:reflog*)", "Bash(git cherry-pick:*)", "Bash(git -C *:cherry-pick*)",
+
+          "Bash(gh pr view:*)", "Bash(gh pr list:*)", "Bash(gh pr create:*)", "Bash(gh pr comment:*)", "Bash(gh pr diff:*)", "Bash(gh pr checks:*)", "Bash(gh pr status:*)", "Bash(gh issue view:*)", "Bash(gh issue list:*)", "Bash(gh issue create:*)", "Bash(gh issue comment:*)", "Bash(gh repo view:*)", "Bash(gh repo list:*)", "Bash(gh run list:*)", "Bash(gh run view:*)", "Bash(gh run watch:*)", "Bash(gh release view:*)", "Bash(gh release list:*)",
+
+          "Bash(npm test:*)", "Bash(npm run test:*)", "Bash(npm run lint:*)", "Bash(npm run typecheck:*)", "Bash(npm run build:*)", "Bash(npm run check:*)", "Bash(npm run dev:*)", "Bash(npm run format:*)", "Bash(npm run watch:*)", "Bash(npm run preview:*)", "Bash(npm ls:*)", "Bash(npm list:*)", "Bash(npm outdated:*)", "Bash(npm audit:*)", "Bash(npm view:*)", "Bash(npm pack:*)",
+
+          "Bash(pnpm test:*)", "Bash(pnpm run test:*)", "Bash(pnpm lint:*)", "Bash(pnpm run lint:*)", "Bash(pnpm typecheck:*)", "Bash(pnpm run typecheck:*)", "Bash(pnpm build:*)", "Bash(pnpm run build:*)", "Bash(pnpm check:*)", "Bash(pnpm run check:*)", "Bash(pnpm dev:*)", "Bash(pnpm run dev:*)", "Bash(pnpm format:*)", "Bash(pnpm run format:*)", "Bash(pnpm watch:*)", "Bash(pnpm run watch:*)", "Bash(pnpm preview:*)", "Bash(pnpm run preview:*)", "Bash(pnpm exec:*)", "Bash(pnpm list:*)", "Bash(pnpm ls:*)", "Bash(pnpm outdated:*)", "Bash(pnpm audit:*)", "Bash(pnpm view:*)",
+
+          "Bash(yarn test:*)", "Bash(yarn run test:*)", "Bash(yarn lint:*)", "Bash(yarn typecheck:*)", "Bash(yarn build:*)", "Bash(yarn list:*)", "Bash(yarn outdated:*)", "Bash(yarn audit:*)",
+
+          "Bash(node:*)", "Bash(deno test:*)", "Bash(deno check:*)", "Bash(deno fmt:*)", "Bash(deno lint:*)", "Bash(bun test:*)", "Bash(bun run test:*)", "Bash(bun run lint:*)", "Bash(bun run typecheck:*)", "Bash(bun run build:*)", "Bash(tsc:*)", "Bash(tsx:*)", "Bash(eslint:*)", "Bash(prettier:*)", "Bash(jest:*)", "Bash(vitest:*)", "Bash(vite build:*)", "Bash(vite preview:*)", "Bash(playwright:*)", "Bash(wrangler dev:*)", "Bash(wrangler tail:*)", "Bash(wrangler whoami:*)",
+
+          "Bash(python:*)", "Bash(python3:*)", "Bash(py:*)", "Bash(pytest:*)", "Bash(ruff:*)", "Bash(black:*)", "Bash(mypy:*)", "Bash(pyright:*)",
+
+          "Bash(cargo build:*)", "Bash(cargo check:*)", "Bash(cargo test:*)", "Bash(cargo clippy:*)", "Bash(cargo fmt:*)", "Bash(cargo run:*)", "Bash(cargo doc:*)", "Bash(cargo bench:*)", "Bash(cargo tree:*)",
+
+          "Bash(go build:*)", "Bash(go test:*)", "Bash(go run:*)", "Bash(go vet:*)", "Bash(go fmt:*)", "Bash(go mod tidy:*)", "Bash(go mod verify:*)", "Bash(go mod why:*)",
+
+          "Bash(docker ps:*)", "Bash(docker logs:*)", "Bash(docker inspect:*)", "Bash(docker compose ps:*)", "Bash(docker compose logs:*)",
+
+          "PowerShell(Get-*)", "PowerShell(Test-Path:*)", "PowerShell(Resolve-Path:*)", "PowerShell(Select-Object:*)", "PowerShell(Where-Object:*)", "PowerShell(ForEach-Object:*)", "PowerShell(Sort-Object:*)", "PowerShell(Group-Object:*)", "PowerShell(Measure-Object:*)", "PowerShell(Compare-Object:*)", "PowerShell(Format-*)", "PowerShell(Out-File:*)", "PowerShell(Out-String:*)", "PowerShell(ConvertTo-*)", "PowerShell(ConvertFrom-*)", "PowerShell(Set-Location:*)", "PowerShell(Push-Location:*)", "PowerShell(Pop-Location:*)",
+
+          "PowerShell(New-Item:*)", "PowerShell(Copy-Item:*)", "PowerShell(Move-Item:*)", "PowerShell(Rename-Item:*)", "PowerShell(Set-Content:*)", "PowerShell(Add-Content:*)", "PowerShell(Clear-Content:*)",
+
+          "PowerShell(Stop-Process:*)", "PowerShell(Start-Process:*)", "PowerShell(Wait-Process:*)"
+        ],
+        "deny": [
+          "Bash(git push --force:*)", "Bash(git -C *:push --force*)", "Bash(git push -f:*)", "Bash(git -C *:push -f*)", "Bash(git push --force-with-lease:*)", "Bash(git -C *:push --force-with-lease*)",
+          "Bash(git branch -D:*)", "Bash(git -C *:branch -D*)", "Bash(git branch --delete --force:*)", "Bash(git -C *:branch --delete --force*)",
+          "Bash(git stash drop:*)", "Bash(git -C *:stash drop*)", "Bash(git stash clear:*)", "Bash(git -C *:stash clear*)",
+          "Bash(rm -rf:*)", "Bash(rm -fr:*)",
+          "Bash(gh pr merge:*)", "Bash(gh release create:*)", "Bash(gh workflow run:*)", "Bash(gh secret:*)"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+### NOTICE — STARTER (replace before publishing)
+###
+### This file goes at the REPO ROOT, not in `docs/`. When you copy
+### `templates/*` into a new project, move LICENSE and NOTICE up to
+### the project root.
+###
+### What this file is:
+###
+### NOTICE is a human-readable summary of the third-party components
+### bundled or distributed with this project, with their copyright
+### notices and license types. It satisfies attribution obligations for
+### dependencies whose licenses require them (Apache-2.0 explicitly;
+### BSD-3-Clause non-endorsement; some MIT-style licenses by convention).
+###
+### **Apache-2.0 specifically requires a NOTICE file** at the root of
+### the distribution if any included Apache-2.0 component shipped one.
+### NOTICE is not optional in that case — it must propagate.
+###
+### **CREDITS vs NOTICE**: `docs/CREDITS.md` is the human-friendly
+### attribution surface (what each library is, why it's used, where it
+### lives in the project). NOTICE is the legal-flavor summary that
+### travels with distributions. Both can exist; CREDITS is for
+### contributors and curiosity, NOTICE is for license compliance.
+###
+### Replace the placeholders below, populate the components list from
+### your actual dependencies, and DELETE this header before shipping.
+
+<PROJECT_NAME>
+Copyright (c) <YEAR> <COPYRIGHT_HOLDER>
+
+This product includes software developed by third parties. The full
+list of dependencies, their sources, and their licenses lives in
+`docs/CREDITS.md`. Components whose licenses require notice-level
+attribution are listed below with the required text verbatim.
+
+----
+
+### <Component name> (<License SPDX-id>)
+
+Copyright notice from upstream, copied verbatim if the license requires
+it. For Apache-2.0 components, copy the upstream NOTICE file's contents
+into a sub-block here.
+
+----
+
+### <Second component name> (<License SPDX-id>)
+
+Copyright notice...
+
+----
+
+(Add one block per component that requires notice-level attribution.
+Components under permissive licenses with no NOTICE requirement —
+plain MIT without an explicit NOTICE file upstream — do not need to
+appear here; CREDITS.md is enough for them.)

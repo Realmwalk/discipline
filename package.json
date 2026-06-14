@@ -1,0 +1,42 @@
+{
+  "name": "discipline",
+  "version": "0.1.0-alpha.1",
+  "description": "Opinionated agentic-workflow framework for teams running AI coding agents that have hit the maintenance wall.",
+  "keywords": [
+    "agents",
+    "ai-coding",
+    "claude-code",
+    "cursor",
+    "documentation",
+    "framework",
+    "playbook",
+    "scaffold"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realmwalk/discipline.git"
+  },
+  "homepage": "https://github.com/realmwalk/discipline#readme",
+  "bugs": {
+    "url": "https://github.com/realmwalk/discipline/issues"
+  },
+  "license": "MIT",
+  "author": "John Hardy",
+  "type": "module",
+  "bin": {
+    "discipline": "./bin/discipline.js"
+  },
+  "files": [
+    "bin/",
+    "templates/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": false
+}
