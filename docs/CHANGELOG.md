@@ -2,6 +2,11 @@
 
 Project-local chronological log of shipped work for this repo.
 
+## 2026-06-15 — Tier enforcement language + CI lint gate
+
+- (update: templates/AGENTS.md) **New `### Tier enforcement (hard rule)`** in the Cross-Ecosystem Tier Framework: tiers are enforced on every delegation, both directions. Every spawn must declare its tier explicitly (an unnamed tier is invalid); the tier must match the task on both the floor (never delegate Frontier-floor work down to save cost) and the ceiling (don't burn Frontier on routine work); tier mismatch is a stop condition (the subagent hands back rather than pushing through under-/over-tiered); the host owns routing, the subagent owns honesty. Strengthened the **Subagent prompting rules** to make explicit tier declaration mandatory and add the mismatch-handback rule.
+- (new: .github/workflows/lint.yml) **CI lint gate** — runs `discipline lint` on every push/PR ("a gate a weak model can forget is not a gate, so it runs in CI"). Dogfoods the local CLI against this repo's `docs/`; comment shows adopters the `npx discipline-md lint` form.
+
 ## 2026-06-14 — Spec & Design phase (CORE): SPEC_WORKFLOW + SPEC + BUILD_PLAN + SPEC_ARCHITECT + lint
 
 New **core** phase that sits between *deciding to build* and *building* — front-loads the human design judgment into an airtight, testable, machine-verifiable spec so an unattended executor (local model, ChatGPT, or Claude) builds the right thing. Two stages, two verbatim gates: Stage A plain-English functional spec → `SPEC_APPROVED`; Stage B technical plan (stack tradeoffs + queue-ready stories + verifier suite) → `BUILD_PLAN_APPROVED`. Model-agnostic throughout; no Claude-only "plan mode" dependency. **Core, not optional** — a good spec is the load-bearing input to every build, and getting you there is the whole point; the anti-completeness stance is about niche project-specific scaffolding, which this is not (see `docs/DECISIONS.md` 2026-06-14).

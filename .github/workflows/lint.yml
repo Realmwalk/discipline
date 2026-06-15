@@ -1,0 +1,23 @@
+name: discipline lint
+
+# A gate a weak model can forget is not a gate — so it runs in CI.
+# This repo dogfoods its own CLI against its own docs/. In your project you'd
+# run the published package instead:  npx discipline-md lint
+# (add  --strict  to also fail on warnings.)
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  lint:
+    name: discipline-md lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: discipline-md lint
+        run: node bin/discipline.js lint

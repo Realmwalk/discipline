@@ -55,6 +55,19 @@ The Sonnet/Opus/Haiku names above are Claude-specific. The same three-tier struc
 - **Workhorse tier** — strong general capability, balanced speed and cost. The default host. Use for: most feature work, test writing, doc updates, single-tool features, CHANGELOG/DECISIONS entries. Claude equivalent: Sonnet 4.6.
 - **Recon tier** — fast and cheap, well-bounded tasks. Use for: file/symbol search, doc-consistency audits, mechanical find-replace, test-output summarization, single-line tweaks. Claude equivalent: Haiku 4.5.
 
+### Tier enforcement (hard rule)
+
+The tiers are not a suggestion. They are enforced on every delegation, in both directions.
+
+- **Every spawn declares its tier, explicitly, before the work starts.** A subagent spawned with no stated tier is invalid — the host names Frontier / Workhorse / Recon for each delegation, every time. There is no "default by omission": an unnamed tier is a routing bug, not a shortcut.
+- **The tier must match the task on both sides.** Under-tiering is a correctness risk; over-tiering is a cost leak. Both are violations:
+  - **Floor — never delegate *down*.** The task types in the Weak-model floor below, plus anything where a wrong answer is expensive or hard to detect, run at Frontier. Do not push them to a cheaper tier to save tokens; the saving is an illusion paid back in rework.
+  - **Ceiling — don't reach *up*.** Routine search, mechanical edits, summarization, and well-bounded single-file work run at Recon or Workhorse. Spending Frontier on them is waste; a host that does it repeatedly is mis-routing. Burn the expensive tier on the one hard subtask, not the whole job.
+- **Tier mismatch is a stop condition.** A subagent that discovers mid-task it is the wrong tier for the work — a Recon agent hitting genuine ambiguity, a Workhorse agent hitting a Frontier-floor task — **stops and hands back with the reason** rather than pushing through under-tiered. Pushing through at the wrong tier is precisely the failure mode the tiers exist to prevent.
+- **The host owns routing; the subagent owns honesty.** The host picks the tier from the rules above. The subagent enforces the floor by refusing work beneath its competence and naming why, instead of guessing confidently. "I'm not the right tier for this" is a successful outcome, not a failure.
+
+Every deviation from these rules is tracked as an experimental `(model, task-type)` pair (see *Experimental scope and the two-failure rule* below) — never a silent widening of scope.
+
 ### Weak-model floor (hard rule)
 
 Some tasks are never run below Frontier tier unsupervised, regardless of how well-specified they look. A Workhorse- or Recon-tier agent that encounters one of these mid-task stops and surfaces it rather than attempting it:
@@ -259,9 +272,10 @@ The subagent pattern is the default. Recommend a direct planning session — hos
 
 - State the goal in one sentence.
 - List the relevant files or directories explicitly.
-- State the model tier and the role name.
+- **Declare the model tier explicitly — Frontier / Workhorse / Recon. A spawn with no stated tier is invalid (see Tier enforcement).** Name the role alongside it.
 - State whether the subagent is read-only or edit-capable.
 - Require the role's output shape verbatim.
+- **If the declared tier turns out wrong for the work mid-task, the subagent stops and hands back with the reason — it does not push through under- or over-tiered.**
 - Subagents do not own commits, merges, or doc-completion-gate sign-off. The host reconciles results and performs git operations.
 
 ## Project-Local Roles
