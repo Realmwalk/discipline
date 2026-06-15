@@ -45,10 +45,10 @@ const OPTIONAL = [
 ];
 
 // ── Agent role split: 6 core, 6 optional ─────────────────────────────────
-// Core role contracts get installed by `discipline init`. Optional roles
+// Core role contracts get installed by `discipline-md init`. Optional roles
 // (the retired-from-default-set roles per docs/DECISIONS.md 2026-05-09)
 // stay in templates/agents/optional/ and are only installed on demand
-// via `discipline add-role <NAME>` for projects that need them.
+// via `discipline-md add-role <NAME>` for projects that need them.
 const CORE_ROLES = [
   'RECON.md',
   'PLANNER.md',
@@ -143,9 +143,9 @@ function cmdInit(flags) {
   console.log('  1. Fill in placeholders in docs/ (search for "[" or "<" markers).');
   console.log('  2. Pick a license in LICENSE (default ships as All Rights Reserved).');
   console.log('  3. Point your AI agent at docs/AGENTS.md.');
-  console.log('  4. Add optional templates with: npx discipline add <name>');
+  console.log('  4. Add optional templates with: npx discipline-md add <name>');
   console.log(`     (available: ${OPTIONAL.join(', ')})`);
-  console.log('  5. Add optional agent roles with: npx discipline add-role <NAME>');
+  console.log('  5. Add optional agent roles with: npx discipline-md add-role <NAME>');
   console.log(`     (available: ${OPTIONAL_ROLES.map((r) => r.replace('.md', '')).join(', ')})`);
   console.log();
 }
@@ -153,7 +153,7 @@ function cmdInit(flags) {
 function cmdAdd(positional) {
   const target = process.cwd();
   if (!positional.length) {
-    console.log('Usage: npx discipline add <template> [<template>...]');
+    console.log('Usage: npx discipline-md add <template> [<template>...]');
     console.log('Available optional templates:');
     for (const f of OPTIONAL) console.log(`  ${f}`);
     return;
@@ -175,7 +175,7 @@ function cmdAdd(positional) {
 function cmdAddRole(positional) {
   const target = process.cwd();
   if (!positional.length) {
-    console.log('Usage: npx discipline add-role <ROLE> [<ROLE>...]');
+    console.log('Usage: npx discipline-md add-role <ROLE> [<ROLE>...]');
     console.log('Available optional agent roles:');
     for (const f of OPTIONAL_ROLES) console.log(`  ${f.replace('.md', '')}`);
     console.log('\nThese roles were retired from the lean default set on 2026-05-09');
@@ -524,17 +524,17 @@ function cmdLint(flags) {
 }
 
 function cmdList() {
-  console.log('\nCore 11 templates (always installed by `discipline init`):');
+  console.log('\nCore 11 templates (always installed by `discipline-md init`):');
   for (const f of CORE) console.log(`  ${f}`);
-  console.log('\nOptional templates (opt-in via `discipline add <name>`):');
+  console.log('\nOptional templates (opt-in via `discipline-md add <name>`):');
   for (const f of OPTIONAL) console.log(`  ${f}`);
-  console.log('\nCore 6 agent role contracts (always installed by `discipline init`):');
+  console.log('\nCore 6 agent role contracts (always installed by `discipline-md init`):');
   for (const f of CORE_ROLES) console.log(`  ${f.replace('.md', '')}`);
-  console.log('\nOptional agent roles (opt-in via `discipline add-role <NAME>`):');
+  console.log('\nOptional agent roles (opt-in via `discipline-md add-role <NAME>`):');
   for (const f of OPTIONAL_ROLES) console.log(`  ${f.replace('.md', '')}`);
-  console.log('\nRepo-root files (installed by `discipline init`):');
+  console.log('\nRepo-root files (installed by `discipline-md init`):');
   for (const f of REPO_ROOT_FILES) console.log(`  ${f}`);
-  console.log('\nHygiene: `discipline lint [--target <path>] [--strict]` checks docs/ against');
+  console.log('\nHygiene: `discipline-md lint [--target <path>] [--strict]` checks docs/ against');
   console.log('the cleanup gate, tag legend, and two-gate autonomy rule.');
   console.log();
 }
@@ -544,13 +544,13 @@ function cmdHelp() {
 Discipline — opinionated agentic-workflow framework
 
 Usage:
-  npx discipline init [--target <path>]    Scaffold Core 11 + Core 6 roles into <path>
-  npx discipline add <template>            Add an optional template to ./docs/
-  npx discipline add-role <ROLE>           Add an optional agent role to ./docs/agents/
-  npx discipline lint [--target <path>]    Lint <path>/docs/ for gate violations
+  npx discipline-md init [--target <path>]    Scaffold Core 11 + Core 6 roles into <path>
+  npx discipline-md add <template>            Add an optional template to ./docs/
+  npx discipline-md add-role <ROLE>           Add an optional agent role to ./docs/agents/
+  npx discipline-md lint [--target <path>]    Lint <path>/docs/ for gate violations
                       [--strict]           (--strict: warnings also fail the run)
-  npx discipline list                      Show all templates and roles
-  npx discipline help                      This message
+  npx discipline-md list                      Show all templates and roles
+  npx discipline-md help                      This message
 
 Lint checks the mechanical half of the framework's gates: [x] residue in
 TODO.md (cleanup gate), unknown tag values, queue entries orphaned from

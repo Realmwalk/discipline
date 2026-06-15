@@ -1,5 +1,5 @@
 <!--
-  Discipline optional template. Install with: npx discipline add IMPROVEMENT_LOOP
+  Discipline optional template. Install with: npx discipline-md add IMPROVEMENT_LOOP
   Pairs with VERIFICATION_GATE.md (the ground-truth signal the loop is built on).
   This is a COLD-PATH doc — read it when running or wiring the loop, not every session.
 -->

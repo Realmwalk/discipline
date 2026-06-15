@@ -378,7 +378,7 @@ Documentation hygiene is a completion gate. Before declaring a task complete, th
 4. **Update `docs/DECISIONS.md`** when the work involved a non-obvious tradeoff.
 5. **Run `git diff -- docs`** before signing off; verify no stale names, endpoints, or paths remain.
 6. **Reflect on the playbook** — see "Playbook Improvement Loop" below. If this session revealed a real workflow-impact change, add an entry to `docs/PLAYBOOK_FEEDBACK.md`. Do NOT edit AGENTS / HANDOFF / etc. directly without user review.
-7. **Run `npx discipline lint`** and fix anything red before signing off.
+7. **Run `npx discipline-md lint`** and fix anything red before signing off.
 
 "Completed" for the cleanup gate means: the change has landed on the default branch (or, for docs-only work, the edit is committed) AND its `docs/CHANGELOG.md` entry is written. Delete the TODO entry at that moment — not when tests pass, not when a PR is opened. The CHANGELOG entry and the TODO deletion happen in the same commit.
 
@@ -410,7 +410,7 @@ Only propose a change when at least one is true:
 
 This section is the **playbook (meta) loop**: improving *how the agents work* (AGENTS / HANDOFF / conventions), captured in `PLAYBOOK_FEEDBACK.md`, gated on workflow-impact.
 
-The **object-level loop** is separate: using subagents to recursively improve *the project's own code/features* (discover → execute → verify → evaluate → integrate → repeat). It is optional and lives in its own contracts — `IMPROVEMENT_LOOP.md` (the cycle, composing the queue + autonomy tags + the RECON / reviewer roles) and `VERIFICATION_GATE.md` (the machine-checkable ground-truth signal every iteration must pass). Install with `npx discipline add IMPROVEMENT_LOOP VERIFICATION_GATE`. The object-level loop **must not run on any step lacking a verification gate** — that step is judgment, route it to `OPEN_DECISIONS.md`.
+The **object-level loop** is separate: using subagents to recursively improve *the project's own code/features* (discover → execute → verify → evaluate → integrate → repeat). It is optional and lives in its own contracts — `IMPROVEMENT_LOOP.md` (the cycle, composing the queue + autonomy tags + the RECON / reviewer roles) and `VERIFICATION_GATE.md` (the machine-checkable ground-truth signal every iteration must pass). Install with `npx discipline-md add IMPROVEMENT_LOOP VERIFICATION_GATE`. The object-level loop **must not run on any step lacking a verification gate** — that step is judgment, route it to `OPEN_DECISIONS.md`.
 
 ### Lifecycle
 

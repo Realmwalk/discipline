@@ -31,7 +31,7 @@ OpenCode, Codex, and a growing set standardize on `AGENTS.md`. Treat it as the p
 ## Delivery — staged
 
 - **Stage 0 — Integration guide (in current scope).** This doc + copy-paste entry-file snippets per harness. Pure docs, near-zero maintenance; makes the existing harness-agnostic promise explicit.
-- **Stage 1 — `discipline init --harness <claude-code|agents|cursor>` (material scope → re-pitch).** Generates the thin adapter file(s) for the top harnesses. New CLI surface + maintenance.
+- **Stage 1 — `discipline-md init --harness <claude-code|agents|cursor>` (material scope → re-pitch).** Generates the thin adapter file(s) for the top harnesses. New CLI surface + maintenance.
 - **Stage 2 — deep primitive generation (bigger scope → separate re-pitch, adoption-gated).** e.g. `.claude/agents/` from role contracts, a cleanup-gate hook, Cursor scoped rules from the hot/cold split. Only for harnesses the data shows people use.
 
 ## Anti-completeness guardrail

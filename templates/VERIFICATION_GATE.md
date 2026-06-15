@@ -1,5 +1,5 @@
 <!--
-  Discipline optional template. Install with: npx discipline add VERIFICATION_GATE
+  Discipline optional template. Install with: npx discipline-md add VERIFICATION_GATE
   The ground-truth signal the Improvement Loop is built on (see IMPROVEMENT_LOOP.md).
   Fill the <placeholders> with THIS project's real, runnable commands.
   COLD-PATH doc — read it when verifying work or running the loop.

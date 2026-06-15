@@ -1,5 +1,5 @@
 {
-  "name": "discipline",
+  "name": "discipline-md",
   "version": "0.1.0-alpha.1",
   "description": "Opinionated agentic-workflow framework for teams running AI coding agents that have hit the maintenance wall.",
   "keywords": [
@@ -24,7 +24,7 @@
   "author": "John Hardy",
   "type": "module",
   "bin": {
-    "discipline": "./bin/discipline.js"
+    "discipline-md": "./bin/discipline.js"
   },
   "files": [
     "bin/",

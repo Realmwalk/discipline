@@ -23,11 +23,11 @@ That object-level loop is a genuinely different capability, and the framework ha
 
 **Decision:** Add a **core** Spec & Design phase: `SPEC_WORKFLOW.md` (the phase definition) + `SPEC.md` / `BUILD_PLAN.md` templates + the `SPEC_ARCHITECT` role + four spec-phase lint rules. Two stages, two verbatim gates (`SPEC_APPROVED` locks a plain-English functional spec; `BUILD_PLAN_APPROVED` locks the technical plan + queue-ready stories + verifier suite). A first-prompt interaction tier (Express / Guided / Thorough[default] / Exhaustive) configures how much the human is consulted. Everything is model-agnostic — written for local LLM / ChatGPT / Claude, with tier routing (Frontier / Workhorse / Recon), never a vendor-specific "plan mode" dependency.
 
-**Core, not optional (decided 2026-06-14, same day):** the phase ships in the default `discipline init` — promoting the templates into Core (8 → 11) and the role into the core set (5 → 6). The anti-completeness thesis is about not shipping *niche, project-specific* scaffolding by default (API_REFERENCE for a project with no API, ASSETS for one with no assets). The Spec & Design phase is the opposite: it is general — every project that builds anything benefits — and load-bearing — you don't get good output without a good spec, and getting you there is the framework's whole point. That makes it a workflow, not an add-on. The earlier same-day instinct to ship it opt-in was wrong on exactly this distinction.
+**Core, not optional (decided 2026-06-14, same day):** the phase ships in the default `discipline-md init` — promoting the templates into Core (8 → 11) and the role into the core set (5 → 6). The anti-completeness thesis is about not shipping *niche, project-specific* scaffolding by default (API_REFERENCE for a project with no API, ASSETS for one with no assets). The Spec & Design phase is the opposite: it is general — every project that builds anything benefits — and load-bearing — you don't get good output without a good spec, and getting you there is the framework's whole point. That makes it a workflow, not an add-on. The earlier same-day instinct to ship it opt-in was wrong on exactly this distinction.
 
 **Consequences:**
 
-- **Core templates 8 → 11, core roles 5 → 6.** `discipline init` now scaffolds `SPEC_WORKFLOW.md` + `SPEC.md` + `BUILD_PLAN.md` and the `SPEC_ARCHITECT` role by default. The shipped `SPEC.md` / `BUILD_PLAN.md` templates are lint-clean by construction (tagged requirements, acceptance-covered, dep-marked stories) so a fresh init passes the spec-phase rules.
+- **Core templates 8 → 11, core roles 5 → 6.** `discipline-md init` now scaffolds `SPEC_WORKFLOW.md` + `SPEC.md` + `BUILD_PLAN.md` and the `SPEC_ARCHITECT` role by default. The shipped `SPEC.md` / `BUILD_PLAN.md` templates are lint-clean by construction (tagged requirements, acceptance-covered, dep-marked stories) so a fresh init passes the spec-phase rules.
 - **The verifier suite makes unattended local execution safe** — it is the ground truth a weak executor cannot fake. This is why every requirement must be checkable; the discipline exists to serve the suite.
 - **The four spec-phase lint rules now run for every adopter** (the files always exist), not just those who opted in — the gate is enforced by default, consistent with making it core.
 - Candidate for wider promotion via the `PLAYBOOK_FEEDBACK` path once it has shipped and been verified here.
@@ -72,7 +72,7 @@ That object-level loop is a genuinely different capability, and the framework ha
 
 **Context:** An honest audit on 2026-05-09 found the default template set carried ~30-40% bloat — 18+ templates, many of which projects don't need (API_REFERENCE.md, ASSETS.md, DATA_MODEL.md, etc.). Empty templates feel like TODO items.
 
-**Decision:** `npx discipline init` ships 8 core templates by default (README, HANDOFF, AGENTS, PROJECT_CONTEXT, TODO, DECISIONS, ROADMAP, CHANGELOG). 14 optional templates available via `npx discipline add <name>`.
+**Decision:** `npx discipline-md init` ships 8 core templates by default (README, HANDOFF, AGENTS, PROJECT_CONTEXT, TODO, DECISIONS, ROADMAP, CHANGELOG). 14 optional templates available via `npx discipline-md add <name>`.
 
 **Consequences:**
 

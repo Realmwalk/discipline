@@ -34,7 +34,7 @@ Most starter kits optimize session 1: one short `AGENTS.md`, terse rules, minima
 
 ```bash
 # Drop the templates into your project's docs/ folder
-npx discipline init
+npx discipline-md init
 ```
 
 That scaffolds a `docs/` folder with the core templates plus a repo-root `LICENSE` and `NOTICE`. Fill in the placeholders, point your agent at `docs/AGENTS.md`, and it has a working playbook from the first session.
@@ -43,12 +43,12 @@ For wiring it to a specific harness (Claude Code's `CLAUDE.md`, Cursor rules, or
 
 ## What ships
 
-`npx discipline init` installs a **small core set** — the docs and agent roles a project actually needs from day one. The idea is to ship the minimum that's genuinely useful and add more only when a real need shows up, rather than a giant pile of stubs. Everything else is opt-in:
+`npx discipline-md init` installs a **small core set** — the docs and agent roles a project actually needs from day one. The idea is to ship the minimum that's genuinely useful and add more only when a real need shows up, rather than a giant pile of stubs. Everything else is opt-in:
 
 ```bash
-npx discipline add <template>     # e.g. ARCHITECTURE, DATA_MODEL, DEPLOYMENT
-npx discipline add-role <ROLE>    # extra agent roles, when a project needs them
-npx discipline list               # see what's available
+npx discipline-md add <template>     # e.g. ARCHITECTURE, DATA_MODEL, DEPLOYMENT
+npx discipline-md add-role <ROLE>    # extra agent roles, when a project needs them
+npx discipline-md list               # see what's available
 ```
 
 ## Lint
@@ -56,9 +56,9 @@ npx discipline list               # see what's available
 A gate a weak model can forget isn't really a gate, so there's a small linter for the mechanical ones:
 
 ```bash
-npx discipline lint                 # lint ./docs/
-npx discipline lint --target <path> # lint another repo
-npx discipline lint --strict        # warnings also fail the run
+npx discipline-md lint                 # lint ./docs/
+npx discipline-md lint --target <path> # lint another repo
+npx discipline-md lint --strict        # warnings also fail the run
 ```
 
 It checks things like `[x]` residue in TODO, tag values outside the documented set, queue entries with no backing task, oversized always-loaded docs, unfilled placeholders, stale handoffs, and the spec-flow conventions. Exit 1 on any error (or any warning under `--strict`); rules skip quietly when their file doesn't exist. Wire it into CI or your end-of-session checklist.

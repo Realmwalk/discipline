@@ -68,7 +68,7 @@ These rules will alienate some adopters. Specifically:
 
 The token-economy-first crowd will think the hot/cold path split is over-engineering. They want one file. *I will pay the per-session cost rather than maintain the split.* This is a coherent position and they're not wrong about session 1.
 
-The completionists who love a 1,372-skill starter kit will find Discipline's Core 8 templates austere. *Where are the rest?* Empty templates feel like TODO items. We don't ship them by default. Add the optional ones via `npx discipline add API_REFERENCE` once the project actually has an API surface worth documenting.
+The completionists who love a 1,372-skill starter kit will find Discipline's Core 8 templates austere. *Where are the rest?* Empty templates feel like TODO items. We don't ship them by default. Add the optional ones via `npx discipline-md add API_REFERENCE` once the project actually has an API surface worth documenting.
 
 The autonomy maximalists will find the two-gate rule annoying. *Why do I have to maintain a curated queue when I already have autonomy tags?* Because tags are a property of the item, queues are a property of the moment, and "is this thing safe right now in this state of the repo" is a moment-property. The annoyance is the cost of the gate. The cost of the gate is the dumb 2 AM merge that doesn't happen.
 
@@ -78,7 +78,7 @@ These opinions only survive contact with reality if the failure modes they preve
 
 ## Try it (or don't)
 
-Discipline is the framework that bakes these opinions in. The OSS repo is at github.com/realmwalk/discipline. `npx discipline init` ships the Core 8 templates plus the agent role contracts described above — hot/cold path docs, the cleanup gate, two-gate autonomy, the anti-improvement-theater rule, and the workhorse-host / frontier-subagent split.
+Discipline is the framework that bakes these opinions in. The OSS repo is at github.com/realmwalk/discipline. `npx discipline-md init` ships the Core 8 templates plus the agent role contracts described above — hot/cold path docs, the cleanup gate, two-gate autonomy, the anti-improvement-theater rule, and the workhorse-host / frontier-subagent split.
 
 I built this for my own use because I think the structural argument holds. I'm publishing it now rather than after twelve months because the argument either survives a careful read or it doesn't, and waiting twelve months to find out costs more than asking now. If the structural argument convinces you, try it on a real repo and tell me where it breaks. If it doesn't convince you, I'd genuinely like to know why — what's the part of the orthodoxy I'm wrong about?
 

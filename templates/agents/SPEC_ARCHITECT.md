@@ -76,7 +76,7 @@ Before considering each stage done:
 
 - **Stage A:** `SPEC.md` complete (all sections, every requirement tagged + testable, Open Questions resolved or surfaced).
 - **Stage B:** `BUILD_PLAN.md` + `ARCHITECTURE.md` (with diagram) complete; every story traces to a requirement and carries id / `[dep:]` / tags; verifier suite emits a runner; `docs/CHANGELOG.md` notes the spec landing.
-- Run `discipline lint` — the spec/queue rules must pass.
+- Run `discipline-md lint` — the spec/queue rules must pass.
 
 ## Approval Signals
 
