@@ -1,6 +1,6 @@
 {
   "name": "discipline-md",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Opinionated agentic-workflow framework for teams running AI coding agents that have hit the maintenance wall.",
   "keywords": [
     "agents",
