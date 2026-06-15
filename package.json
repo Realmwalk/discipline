@@ -1,6 +1,6 @@
 {
   "name": "discipline-md",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0",
   "description": "Opinionated agentic-workflow framework for teams running AI coding agents that have hit the maintenance wall.",
   "keywords": [
     "agents",
@@ -23,9 +23,6 @@
   "license": "MIT",
   "author": "John Hardy",
   "type": "module",
-  "bin": {
-    "discipline-md": "./bin/discipline.js"
-  },
   "files": [
     "bin/",
     "templates/",
@@ -38,5 +35,6 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "private": false
+  "private": false,
+  "bin": "bin/discipline.js"
 }
